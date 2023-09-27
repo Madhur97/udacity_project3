@@ -2,16 +2,28 @@
 
 ## UML
 
+### Activity Diagram
 ![activity_diagram](images/activity_diagram.png)
+
+### Sequence Diagram
 ![sequence_diagram](images/sequence_diagram.png)
+
+### State Diagram
 ![state_diagram](images/state_diagram.png)
+
+### Class Diagram
 ![class_diagram](images/class_diagram.png)
 
-## Libraries
 
+## Libraries
+```
  web3 version               : "0.20.6" (version of web3 library used for connecting to blockchain)
+ 
  truffle-assertions version : "^0.9.2" (used for assertion of events emitted by contracts during test)
+ 
  node version               : "16.14.2"
+```
+
 
  ## IPFS
 
