@@ -36,6 +36,7 @@
 Deployment 
 
 Ethereum network - Sepolia
+
 Supply Chain Contract address - 0x33914A839acecE9e3b57BEB6e27320649146E906
 
 Trasaction history -
