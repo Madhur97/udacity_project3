@@ -83,7 +83,7 @@ App = {
     },
 
     getMetaskAccountID: function () {
-        web3 = new Web3(App.web3Provider);
+        web3 = new Web3(web3.currentProvider);
 
         // Retrieving accounts
         web3.eth.getAccounts(function(err, res) {
@@ -100,7 +100,7 @@ App = {
     initSupplyChain: function () {
         /// Source the truffle compiled smart contracts
         var jsonSupplyChain='../../build/contracts/SupplyChain.json';
-        
+        web3.eth.defaultAccount = web3.eth.accounts[0];  // added this line to resolve "invaid address" issue while clicking Harvest in UI
         /// JSONfy the smart contracts
         $.getJSON(jsonSupplyChain, function(data) {
             console.log('data',data);

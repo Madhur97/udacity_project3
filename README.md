@@ -1,112 +1,73 @@
-# Supply chain & data auditing
+# Architect a Blockchain Supply Chain Solution 
 
-This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
+## UML
 
-The DApp User Interface when running should look like...
+![activity_diagram](images/activity_diagram.png)
+![sequence_diagram](images/sequence_diagram.png)
+![state_diagram](images/state_diagram.png)
+![class_diagram](images/class_diagram.png)
 
-![truffle test](images/ftc_product_overview.png)
+## Libraries
 
-![truffle test](images/ftc_farm_details.png)
+ web3 version               : "0.20.6" (version of web3 library used for connecting to blockchain)
+ truffle-assertions version : "^0.9.2" (used for assertion of events emitted by contracts during test)
+ node version               : "16.14.2"
 
-![truffle test](images/ftc_product_details.png)
+ ## IPFS
 
-![truffle test](images/ftc_transaction_history.png)
+ IPFS was not used for this project.
+
+ ## General write-up
+
+ This repository containts an Ethereum DApp that demonstrates a Supply Chain flow of Coffee from a Farmer to Consuer. It includes the contract definitions, frontend and truffle configuration for sepolia and development network. The Farmer harvests, processes, packs and puts coffee for sale, distributor buys and ships coffee, retailer receives coffee and consumer purchases it. The state of coffee keeps changing at every stage.  
+
+Deployment 
+
+Ethereum network - Sepolia
+Supply Chain Contract address - 0x33914A839acecE9e3b57BEB6e27320649146E906
+
+Trasaction history -
+* Harvested - 0x1e4af317e233ce14c1a24dfa1e63e7b03911744d3039512d1bc4711ee5aa7e5e
+* Processed - 0x4f3c4e8107738937dfc4f26c435a6f967c9746cc7abeab17fda333d07f08014f
+* Packed - 0x72186506f38bdbfb707bb5f20a041e280363c8a32acdf688428bc210d9fd5e08
+* ForSale - 0xc4ace6b95bbfcbb5cdd25984aadeb90cfda6e7e6de1fc7803bea6f2c8e459672
+* Sold - 0x381b3515f49a50e2a26093734247852aa9fac8078f806328a69a97a04f22d9c2
+* Shipped - 0x62d72a354a47e4a7c828a1e308075a1f931c813e02e17de794148dc8acfd38e4
+* Received - 0x0b6863cfb1ad76f66ecb668ab2a6280b0f16bc3968ba2cb766d693295db40f16
+* Purchased - 0x25b3bf193aa033c8c8aa16095fec27a3fd65cd6ad87fd709240d235d22b25a79
 
 
-## Getting Started
+### Steps to run 
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
-
-```
-Give examples (to be clarified)
-```
-
-### Installing
-
-> The starter code is written for **Solidity v0.4.24**. At the time of writing, the current Truffle v5 comes with Solidity v0.5 that requires function *mutability* and *visibility* to be specified (please refer to Solidity [documentation](https://docs.soliditylang.org/en/v0.5.0/050-breaking-changes.html) for more details). To use this starter code, please run `npm i -g truffle@4.1.14` to install Truffle v4 with Solidity v0.4.24. 
-
-A step by step series of examples that tell you have to get a development env running
-
-Clone this repository:
-
-```
-git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
-```
-
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
+Change directory to ```project-6``` folder and install all requisite npm packages:
 
 ```
 cd project-6
 npm install
 ```
 
-Launch Ganache:
-
-```
-ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/ganache-cli.png)
-
-In a separate terminal window, Compile smart contracts:
+To compile all contracts, run:
 
 ```
 truffle compile
 ```
 
-Your terminal should look something like this:
-
-![truffle test](images/truffle_compile.png)
-
-This will create the smart contract artifacts in folder ```build\contracts```.
-
-Migrate smart contracts to the locally running blockchain, ganache-cli:
-
-```
-truffle migrate
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_migrate.png)
-
-Test smart contracts:
+and:
 
 ```
 truffle test
 ```
 
-All 10 tests should pass.
+to test the changes.
 
-![truffle test](images/truffle_test.png)
-
-In a separate terminal window, launch the DApp:
+The frontend can be accessed at http://localhost:3000 after running below command:
 
 ```
 npm run dev
 ```
 
-## Built With
+To deploy to the sepolia network:
 
-* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
-
-## Authors
-
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
-
-## Acknowledgments
-
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
+```
+truffle migrate --network sepolia
+```
